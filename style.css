@@ -31,8 +31,9 @@ body {
 
 html,
 body {
-    max-width: 100vw;
+    max-width: 100%;
     overflow-x: hidden;
+    width: 100%;
 }
 
 .container {
@@ -1842,12 +1843,25 @@ body.light-mode .hero-title {
     }
 
     .hero-title {
-        font-size: 2rem;
+        font-size: 1.8rem;
         letter-spacing: -1px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
     }
 
     .hero-title .line {
-        display: inline;
+        display: block;
+        text-align: center;
+    }
+
+    .hero-title .typing-container {
+        display: block;
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+        font-size: 1.5rem;
     }
 
     .hero-desc {
