@@ -11,6 +11,20 @@
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div class="loader">
+        <div class="loader-content">
+            <div class="loader-spinner"></div>
+            <span class="loader-text">Loading<span class="loader-dots">...</span></span>
+        </div>
+    </div>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <span class="sun-icon">☀️</span>
+        <span class="moon-icon">🌙</span>
+    </button>
+
     <!-- Scroll Progress -->
     <div class="scroll-progress"></div>
 
@@ -24,6 +38,7 @@
                 <a href="#home" class="active">Home</a>
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
+                <a href="#certifications">Certifications</a>
                 <a href="#projects">Projects</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -41,7 +56,7 @@
             <div class="layer layer-4"></div>
         </div>
 
-        <!-- Floating Elements (parallax) -->
+        <!-- Floating Elements -->
         <div class="floating-elements">
             <div class="float-item float-1">📊</div>
             <div class="float-item float-2">🤖</div>
@@ -59,8 +74,10 @@
             </div>
             <h1 class="hero-title">
                 <span class="line">Hi, I'm <span class="highlight">Vishnu K</span></span>
-                <span class="line">Data Scientist &</span>
-                <span class="line gradient">ML Engineer</span>
+                <span class="line typing-container">
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="typing-cursor">|</span>
+                </span>
             </h1>
             <p class="hero-desc">
                 I transform complex data into actionable insights. Specializing in machine learning,
@@ -73,20 +90,31 @@
                         <path d="M5 12h14M12 5l7 7-7 7" />
                     </svg>
                 </a>
-                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                <a href="resume.pdf" download class="btn btn-secondary btn-download">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
+                    </svg>
+                    <span>Download Resume</span>
+                </a>
             </div>
-            <div class="hero-stats">
-                <div class="stat">
-                    <span class="stat-number" data-target="50">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">Projects</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="5">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">Years Exp</span>
-                </div>
-                <div class="stat">
-                    <span class="stat-number" data-target="20">0</span><span class="stat-plus">+</span>
-                    <span class="stat-label">Clients</span>
+            <div class="hero-code">
+                <div class="code-window">
+                    <div class="code-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="code-title">data_science.py</span>
+                    </div>
+                    <div class="code-body">
+                        <pre><code><span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+<span class="keyword">import</span> numpy <span class="keyword">as</span> np
+<span class="keyword">from</span> sklearn <span class="keyword">import</span> ml
+
+<span class="comment"># Let's build something amazing!</span>
+model = ml.<span class="function">train</span>(data)
+predictions = model.<span class="function">predict</span>(X_test)
+<span class="cursor">|</span></code></pre>
+                    </div>
                 </div>
             </div>
         </div>
@@ -109,11 +137,68 @@
             </div>
             <div class="about-grid">
                 <div class="about-image reveal reveal-left">
-                    <div class="image-frame">
-                        <div class="image-placeholder">
-                            <span>👨‍💻</span>
+                    <div class="data-viz-container">
+                        <!-- Enhanced Neural Network -->
+                        <div class="neural-network enhanced">
+                            <!-- Input Layer -->
+                            <div class="nn-layer input-layer">
+                                <div class="node pulse-1"><span>📊</span></div>
+                                <div class="node pulse-2"><span>📈</span></div>
+                                <div class="node pulse-3"><span>🔢</span></div>
+                            </div>
+                            <!-- Connection Lines -->
+                            <div class="connection-lines">
+                                <svg class="line-svg" viewBox="0 0 80 200">
+                                    <path class="data-line" d="M0,30 Q40,50 80,30" />
+                                    <path class="data-line" d="M0,30 Q40,80 80,100" />
+                                    <path class="data-line" d="M0,30 Q40,140 80,170" />
+                                    <path class="data-line" d="M0,100 Q40,60 80,30" />
+                                    <path class="data-line" d="M0,100 Q40,100 80,100" />
+                                    <path class="data-line" d="M0,100 Q40,140 80,170" />
+                                    <path class="data-line" d="M0,170 Q40,130 80,100" />
+                                    <path class="data-line" d="M0,170 Q40,170 80,170" />
+                                </svg>
+                            </div>
+                            <!-- Hidden Layer -->
+                            <div class="nn-layer hidden-layer">
+                                <div class="node active glow"><span>🧠</span></div>
+                                <div class="node active"><span>⚡</span></div>
+                                <div class="node active glow"><span>🔮</span></div>
+                            </div>
+                            <!-- Connection Lines -->
+                            <div class="connection-lines">
+                                <svg class="line-svg" viewBox="0 0 80 200">
+                                    <path class="data-line reverse" d="M0,30 Q40,50 80,50" />
+                                    <path class="data-line reverse" d="M0,30 Q40,100 80,150" />
+                                    <path class="data-line reverse" d="M0,100 Q40,80 80,50" />
+                                    <path class="data-line reverse" d="M0,100 Q40,120 80,150" />
+                                    <path class="data-line reverse" d="M0,170 Q40,120 80,50" />
+                                    <path class="data-line reverse" d="M0,170 Q40,160 80,150" />
+                                </svg>
+                            </div>
+                            <!-- Output Layer -->
+                            <div class="nn-layer output-layer">
+                                <div class="node output-node"><span>✨</span></div>
+                                <div class="node output-node"><span>🎯</span></div>
+                            </div>
                         </div>
-                        <div class="image-accent"></div>
+                        <!-- Floating Data Icons -->
+                        <div class="data-particles">
+                            <span class="particle p1 float-icon">💻</span>
+                            <span class="particle p2 float-icon">🐍</span>
+                            <span class="particle p3 float-icon">📉</span>
+                            <span class="particle p4 float-icon">🤖</span>
+                            <span class="particle p5 float-icon">⚙️</span>
+                        </div>
+                        <!-- Multiple Orbit Rings -->
+                        <div class="orbit-ring orbit-1">
+                            <div class="orbit-dot"></div>
+                        </div>
+                        <div class="orbit-ring orbit-2">
+                            <div class="orbit-dot dot-2"></div>
+                        </div>
+                        <!-- Glowing Background -->
+                        <div class="glow-bg"></div>
                     </div>
                 </div>
                 <div class="about-content reveal reveal-right">
@@ -217,12 +302,86 @@
                         <div class="skill-fill" data-level="85"></div>
                     </div>
                 </div>
+                <!-- New Skills -->
+                <div class="skill-card reveal">
+                    <div class="skill-icon">📈</div>
+                    <h3>Power BI / Tableau</h3>
+                    <p>Business Intelligence & Dashboards</p>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-level="85"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">💬</div>
+                    <h3>NLP</h3>
+                    <p>Text Processing, Sentiment Analysis</p>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-level="80"></div>
+                    </div>
+                </div>
+                <div class="skill-card reveal">
+                    <div class="skill-icon">🔧</div>
+                    <h3>Git & Version Control</h3>
+                    <p>GitHub, GitLab, Collaboration</p>
+                    <div class="skill-bar">
+                        <div class="skill-fill" data-level="88"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section" id="certifications">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Credentials</span>
+                <h2 class="section-title">Certifications & <span class="gradient">Training</span></h2>
+            </div>
+            <div class="cert-grid">
+                <div class="cert-card reveal">
+                    <div class="cert-badge">🏆</div>
+                    <div class="cert-content">
+                        <h3>Data Science Certification</h3>
+                        <p class="cert-issuer">Datamites, Bangalore</p>
+                        <p class="cert-desc">Comprehensive training in Machine Learning, Deep Learning, and Data
+                            Analytics</p>
+                        <div class="cert-meta">
+                            <span class="cert-date">2024</span>
+                            <span class="cert-badge-verified">✓ Verified</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-badge">🎓</div>
+                    <div class="cert-content">
+                        <h3>BSc Computer Science</h3>
+                        <p class="cert-issuer">University Graduate</p>
+                        <p class="cert-desc">Software Engineering with focus on programming and system design</p>
+                        <div class="cert-meta">
+                            <span class="cert-date">Completed</span>
+                            <span class="cert-badge-verified">✓ Degree</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cert-card reveal">
+                    <div class="cert-badge">💼</div>
+                    <div class="cert-content">
+                        <h3>Data Science Internship</h3>
+                        <p class="cert-issuer">Rubix AI Solution</p>
+                        <p class="cert-desc">Hands-on experience with real-world ML projects and data pipelines</p>
+                        <div class="cert-meta">
+                            <span class="cert-date">Experience</span>
+                            <span class="cert-badge-verified">✓ Completed</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section class="section" id="projects">
+    <section class="section section-dark" id="projects">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">Portfolio</span>
@@ -235,7 +394,8 @@
                         <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=600&h=400&fit=crop"
                             alt="FIFA 20 Players" class="project-img">
                         <div class="project-overlay">
-                            <a href="#" class="project-link">View Project</a>
+                            <a href="https://github.com/Vishnu-77-cpu/FIFA-20-Clustering-project" target="_blank"
+                                class="project-link">View on GitHub</a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -245,8 +405,7 @@
                             <span>Clustering</span>
                         </div>
                         <h3>FIFA 20 Players Clustering</h3>
-                        <p>K-Means clustering analysis of FIFA 20 player attributes to identify player archetypes and
-                            similarity groups.</p>
+                        <p>K-Means clustering analysis of FIFA 20 player attributes to identify player archetypes.</p>
                     </div>
                 </div>
                 <div class="project-card reveal">
@@ -255,7 +414,8 @@
                         <img src="https://images.unsplash.com/photo-1501167786227-4cba60f6d58f?w=600&h=400&fit=crop"
                             alt="Bank Management" class="project-img">
                         <div class="project-overlay">
-                            <a href="#" class="project-link">View Project</a>
+                            <a href="https://github.com/Vishnu-77-cpu/Protugese-Bank-Management" target="_blank"
+                                class="project-link">View on GitHub</a>
                         </div>
                     </div>
                     <div class="project-content">
@@ -265,17 +425,17 @@
                             <span>Banking</span>
                         </div>
                         <h3>Portuguese Bank Management</h3>
-                        <p>Predictive model for bank marketing campaign success using classification algorithms with 91%
-                            accuracy.</p>
+                        <p>Predictive model for bank marketing campaign success with 91% accuracy.</p>
                     </div>
                 </div>
                 <div class="project-card reveal">
+                    <div class="project-status-badge">🚧 In Progress</div>
                     <div class="project-image"
                         style="background: linear-gradient(135deg, #7c2d12 0%, #ea580c 50%, #f97316 100%);">
                         <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop"
                             alt="Run and Walk" class="project-img">
                         <div class="project-overlay">
-                            <a href="#" class="project-link">View Project</a>
+                            <span class="project-link coming-soon">Coming Soon</span>
                         </div>
                     </div>
                     <div class="project-content">
@@ -285,17 +445,17 @@
                             <span>Sensor Data</span>
                         </div>
                         <h3>Run and Walk Prediction</h3>
-                        <p>Deep learning model to classify walking and running activities from accelerometer sensor data
-                            with 96% precision.</p>
+                        <p>Deep learning model to classify walking and running activities from sensor data.</p>
                     </div>
                 </div>
                 <div class="project-card reveal">
+                    <div class="project-status-badge">🚧 In Progress</div>
                     <div class="project-image"
                         style="background: linear-gradient(135deg, #581c87 0%, #7c3aed 50%, #a855f7 100%);">
                         <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&h=400&fit=crop"
                             alt="Handwriting" class="project-img">
                         <div class="project-overlay">
-                            <a href="#" class="project-link">View Project</a>
+                            <span class="project-link coming-soon">Coming Soon</span>
                         </div>
                     </div>
                     <div class="project-content">
@@ -305,8 +465,43 @@
                             <span>MNIST</span>
                         </div>
                         <h3>Handwriting Prediction</h3>
-                        <p>Convolutional Neural Network for handwritten digit and character recognition with 98.5%
-                            accuracy.</p>
+                        <p>CNN for handwritten digit and character recognition with high accuracy.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section" id="testimonials">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">Feedback</span>
+                <h2 class="section-title">What People <span class="gradient">Say</span></h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">Vishnu showed exceptional dedication during his internship. His ability
+                        to grasp complex ML concepts quickly was impressive.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👨‍💼</div>
+                        <div class="author-info">
+                            <strong>Team Lead</strong>
+                            <span>Rubix AI Solution</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="testimonial-quote">"</div>
+                    <p class="testimonial-text">A quick learner with strong problem-solving skills. Vishnu consistently
+                        delivered quality work on data science projects.</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">👩‍🏫</div>
+                        <div class="author-info">
+                            <strong>Mentor</strong>
+                            <span>Datamites Bangalore</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -314,7 +509,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section class="section section-dark" id="contact">
+    <section class="section" id="contact">
         <div class="container">
             <div class="section-header reveal">
                 <span class="section-tag">Get In Touch</span>

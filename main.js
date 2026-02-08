@@ -2,6 +2,62 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // ===== LOADING SCREEN =====
+    const loader = document.querySelector('.loader');
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            loader.classList.add('hidden');
+        }, 1500);
+    });
+
+    // ===== THEME TOGGLE =====
+    const themeToggle = document.getElementById('themeToggle');
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+        document.body.classList.add('light-mode');
+    }
+
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // ===== TYPING EFFECT =====
+    const typingText = document.getElementById('typingText');
+    const roles = ['Data Scientist', 'ML Engineer', 'Data Analyst'];
+    let roleIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function typeEffect() {
+        const currentRole = roles[roleIndex];
+
+        if (isDeleting) {
+            typingText.textContent = currentRole.substring(0, charIndex - 1);
+            charIndex--;
+        } else {
+            typingText.textContent = currentRole.substring(0, charIndex + 1);
+            charIndex++;
+        }
+
+        let typeSpeed = isDeleting ? 50 : 100;
+
+        if (!isDeleting && charIndex === currentRole.length) {
+            typeSpeed = 2000; // Pause at end
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            roleIndex = (roleIndex + 1) % roles.length;
+            typeSpeed = 500; // Pause before new word
+        }
+
+        setTimeout(typeEffect, typeSpeed);
+    }
+
+    typeEffect();
+
     // Elements
     const scrollProgress = document.querySelector('.scroll-progress');
     const nav = document.querySelector('.nav');
@@ -9,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const layers = document.querySelectorAll('.layer');
     const reveals = document.querySelectorAll('.reveal');
     const skillFills = document.querySelectorAll('.skill-fill');
-    const statNumbers = document.querySelectorAll('.stat-number');
 
     // ===== SCROLL PROGRESS BAR =====
     function updateScrollProgress() {
@@ -75,40 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // ===== COUNTER ANIMATION =====
-    let countersAnimated = false;
-
-    function animateCounters() {
-        if (countersAnimated) return;
-
-        const statsSection = document.querySelector('.hero-stats');
-        if (!statsSection) return;
-
-        const rect = statsSection.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
-            countersAnimated = true;
-
-            statNumbers.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const duration = 2000;
-                const step = target / (duration / 16);
-                let current = 0;
-
-                const updateCounter = () => {
-                    current += step;
-                    if (current < target) {
-                        counter.textContent = Math.floor(current);
-                        requestAnimationFrame(updateCounter);
-                    } else {
-                        counter.textContent = target;
-                    }
-                };
-
-                updateCounter();
-            });
-        }
-    }
-
     // ===== SMOOTH SCROLL FOR NAV LINKS =====
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -166,7 +187,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 updateParallax();
                 revealOnScroll();
                 animateSkillBars();
-                animateCounters();
                 updateActiveLink();
                 ticking = false;
             });
@@ -190,5 +210,15 @@ document.addEventListener('DOMContentLoaded', () => {
         card.style.transitionDelay = (index * 0.15) + 's';
     });
 
-    console.log('📊 Data Science Portfolio - Smooth Scroll Parallax Loaded!');
+    const certCards = document.querySelectorAll('.cert-card.reveal');
+    certCards.forEach((card, index) => {
+        card.style.transitionDelay = (index * 0.1) + 's';
+    });
+
+    const blogCards = document.querySelectorAll('.blog-card.reveal');
+    blogCards.forEach((card, index) => {
+        card.style.transitionDelay = (index * 0.1) + 's';
+    });
+
+    console.log('📊 Data Science Portfolio - All 10 Features Loaded!');
 });
