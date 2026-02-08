@@ -105,27 +105,36 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // ===== REVEAL ON SCROLL (SCROLL DOWN ANIMATION) =====
+    // ===== REVEAL ON SCROLL (SCROLL UP AND DOWN) =====
     function revealOnScroll() {
         reveals.forEach(reveal => {
             const revealTop = reveal.getBoundingClientRect().top;
+            const revealBottom = reveal.getBoundingClientRect().bottom;
             const revealPoint = window.innerHeight * 0.85;
+            const hidePoint = 50; // Hide when element goes above viewport
 
-            if (revealTop < revealPoint) {
+            // Show when scrolling down into view
+            if (revealTop < revealPoint && revealBottom > hidePoint) {
                 reveal.classList.add('active');
+            } else {
+                // Hide when scrolling out of view (up or down)
+                reveal.classList.remove('active');
             }
         });
     }
 
-    // ===== SKILL BARS ANIMATION =====
+    // ===== SKILL BARS ANIMATION (REPEATING) =====
     function animateSkillBars() {
         skillFills.forEach(fill => {
             const parent = fill.closest('.skill-card');
             const rect = parent.getBoundingClientRect();
 
-            if (rect.top < window.innerHeight * 0.9) {
+            if (rect.top < window.innerHeight * 0.9 && rect.bottom > 50) {
                 const level = fill.getAttribute('data-level');
                 fill.style.width = level + '%';
+            } else {
+                // Reset when out of view
+                fill.style.width = '0%';
             }
         });
     }
