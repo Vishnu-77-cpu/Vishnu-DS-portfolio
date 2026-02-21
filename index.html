@@ -569,21 +569,29 @@ predictions = model.<span class="function">predict</span>(X_test)
                         <a href="#" class="social-link">Kaggle</a>
                     </div>
                 </div>
-                <form class="contact-form reveal reveal-right">
+                <form class="contact-form reveal reveal-right"
+                    action="https://formsubmit.co/vishnukarthik7077@gmail.com" method="POST">
+                    <!-- Formsubmit Configuration -->
+                    <input type="hidden" name="_subject" value="New Portfolio Contact Message!">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_next"
+                        value="https://vishnu-77-cpu.github.io/Vishnu-DS-portfolio/?sent=true">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="text" name="_honey" style="display:none">
                     <div class="form-group">
-                        <input type="text" id="name" placeholder=" " required>
+                        <input type="text" name="name" id="name" placeholder=" " required>
                         <label for="name">Your Name</label>
                     </div>
                     <div class="form-group">
-                        <input type="email" id="email" placeholder=" " required>
+                        <input type="email" name="email" id="email" placeholder=" " required>
                         <label for="email">Your Email</label>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="subject" placeholder=" ">
+                        <input type="text" name="subject" id="subject" placeholder=" ">
                         <label for="subject">Subject</label>
                     </div>
                     <div class="form-group">
-                        <textarea id="message" rows="4" placeholder=" " required></textarea>
+                        <textarea name="message" id="message" rows="4" placeholder=" " required></textarea>
                         <label for="message">Your Message</label>
                     </div>
                     <button type="submit" class="btn btn-primary btn-full">
